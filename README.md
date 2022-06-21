@@ -13,6 +13,6 @@ Prices_Profits_Power.pdf is the final paper.
 
 2_Analysis_for_paper.R runs the statistics, graphics, and regressions necessary for creating the paper. The paper folder has the R markdown file for creating the paper that uses this code.
 
-3_Create_standalone_graphics.R creates the graphics from the paper in the graphics folder. This assumes the first two files have been run and their variables are in your environment.
+3_Create_standalone_graphics.R creates the graphics from the paper in the graphics folder. This assumes the first two files have been run and their variables are in your environment. It also adds underlying data for certain Figures in the graphics folder for others to use.
 
 4_Statement_fact_check.R has code to confirm various statements within the paper.  This assumes the first two files have been run and their variables are in your environment.

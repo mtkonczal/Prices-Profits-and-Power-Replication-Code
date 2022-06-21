@@ -81,3 +81,22 @@ ggsave("graphics/figure6.png", plot=SA_within_graphic2, dpi="retina", width = 12
 ggsave("graphics/figure7.png", plot=SA_mp_g1, dpi="retina", width = 12, height=6.75, units = "in")
 ggsave("graphics/figure8.png", plot=SA_mp_g2, dpi="retina", width = 12, height=6.75, units = "in")
 
+
+####
+# Create csvs of underlying data:
+
+csv_g3_1 <- g3_1 %>% select(year, Markup2) %>% rename("Aggregate Markups" = Markup2)
+write_csv(csv_g3_1, file="graphics/underlying_data/Figure1.csv")
+
+csv_g3_2 <- moving_levels %>% pivot_wider(names_from = type, values_from = type_values)
+write_csv(csv_g3_2, file="graphics/underlying_data/Figure2.csv")
+
+csv_g31_1 <- g31_1 %>% pivot_wider(names_from = type, values_from = type_values)
+write_csv(csv_g31_1, file="graphics/underlying_data/Figure3.csv")
+
+csv_pcs_m <- pcs_m %>% select(year, p_name, p_value) %>% arrange(year, p_name) %>%
+  filter(p_name != lag(p_name,1)) %>% pivot_wider(names_from = p_name, values_from = p_value)
+write_csv(csv_pcs_m, file="graphics/underlying_data/Figure4.csv")
+
+csv_table2  <- table2 %>% pivot_wider(names_from = key, values_from = value) %>% arrange(year)
+write_csv(csv_table2, file="graphics/underlying_data/Figure6.csv")
